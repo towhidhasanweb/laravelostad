@@ -16,14 +16,13 @@ class AssignmentController extends Controller
         return "name: ${name}, user-agent: ${userAgent}";
     }
 
-    // Answer- 3
+
     public function page_query(Request $request)
     {
         $page = $request->query('page', null);
         return $page;
     }
 
-    // Answer- 4
     public function json_response():JsonResponse
     {
 
@@ -39,7 +38,7 @@ class AssignmentController extends Controller
         ]);
     }
 
-    // Answer- 5
+
     public function file_upload(Request $request)
     {
         $files = $request->file('avatar');
@@ -48,7 +47,7 @@ class AssignmentController extends Controller
         return "ok";
     }
 
-    // Answer- 6
+
     public function add_cookie(Request $request)
     {
         $rememberToken = $request->cookie('remember_token', null);
@@ -56,7 +55,7 @@ class AssignmentController extends Controller
         return $rememberToken;
     }
 
-    // Answer of Question-7
+
     public function submit_email(Request $request):JsonResponse
     {
         $email = $request->input('email');

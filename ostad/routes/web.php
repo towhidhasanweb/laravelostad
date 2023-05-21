@@ -19,20 +19,17 @@ Route::get('/', function () {
 });
 
 
-// Answer 1 & 2
+
 Route::post('/users', [AssignmentController::class, 'users_information']);
 
 
-
-
-// Answer of Question-4
 Route::get('/json-response', [AssignmentController::class, 'json_response']);
 
-// Answer of Question-5
+
 Route::post('/files', [AssignmentController::class, 'file_upload']);
 
-// Answer of Question-6
+
 Route::post('/cookie', [AssignmentController::class, 'add_cookie']);
 
-// Answer of Question-7
+
 Route::post('/submit', [AssignmentController::class, 'submit_email']);
