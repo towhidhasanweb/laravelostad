@@ -32,7 +32,7 @@ Route::get('/json-response', [AssignmentController::class, 'json_response']);
 Route::post('/files', [AssignmentController::class, 'file_upload']);
 
 // Answer of Question-6
-Route::post('/cookie', [AssignmentController::class, 'add_cookie']);
+Route::get('/cookie', [AssignmentController::class, 'add_cookie']);
 
 // Answer of Question-7
 Route::post('/submit', [AssignmentController::class, 'submit_email']);
