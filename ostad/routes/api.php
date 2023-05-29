@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +21,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
+// Task 1: Request Validation
+Route::middleware('registration')->post('/registration', [AssignmentController::class , 'registration']);
 
-Route::get('/pages', [AssignmentController::class , 'page_query']);
+
+// Task 5: Controller
+route::resource('/product', ProductController::class);

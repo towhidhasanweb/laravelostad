@@ -2,66 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\registrationMiddleware;
+use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class AssignmentController extends Controller
 {
-    // Answers- 1 & 2
-    public function users_information(Request $request)
-    {
-        $name = $request->input('name');
-        $userAgent = $request->header('User-Agent');
-
-        return "name: ${name}, user-agent: ${userAgent}";
-    }
-
-
-    public function page_query(Request $request)
-    {
-        $page = $request->query('page', null);
-        return $page;
-    }
-
-    public function json_response():JsonResponse
-    {
-
-        $mes = "success";
-        $data = [
-            "name"=>"John Doe",
-            "age"=>25
-        ];
-
-        return response()->json([
-            "message" => $mes,
-            "data"=> $data
+    public function registration(Request $request){
+        User::insert([
+            'name'=> $request->name,
+            'email'=> $request->email,
+            'password'=> $request->password,
         ]);
+        return response('Data submited successfully!');
+    }
+    public function RedirectToDashboard(){
+        return redirect('/dashboard');
     }
 
-
-    public function file_upload(Request $request)
-    {
-        $files = $request->file('avatar');
-        $files->move(public_path('/uploads'), $files->getClientOriginalName());
-
-        return "ok";
+    public function dashboard(){
+        return response('Dashboard');
     }
 
-
-    public function add_cookie(Request $request)
-    {
-        $rememberToken = $request->cookie('remember_token', null);
-
-        return $rememberToken;
+    public function welcomePage(){
+        return view('welcome');
     }
 
-
-    public function submit_email(Request $request):JsonResponse
-    {
-        $email = $request->input('email');
-        return response()->json([
-            "success" => true,
-            "message" => "Form submitted successfully."
-        ]);
+    public function profile(Request $request){
+       
+        return response('you are authenticated users');;
     }
+
+    public function settings(Request $request){
+        return response('you are authenticated users');
+    }
+   
 }
