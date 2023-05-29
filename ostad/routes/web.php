@@ -39,7 +39,7 @@ Route::middleware('authuser')->group(function () {
 
 
 // Task 6: Single Action Controller
-route::post('/contact', ContactController::class);
+route::get('/contact', ContactController::class);
 
 // Task 7: Resource Controller
 route::resource('/post', PostController::class);
